@@ -56,7 +56,7 @@ int main(void) {
     usart2_init();
 
     usart2_send_string("System Initialized\r\n");
-
+    configure_gpio_for_usart();
     uint32_t heartbeat_tick = 0;
     while (1) {
         if (systick_GetTick() - heartbeat_tick >= 500) {
