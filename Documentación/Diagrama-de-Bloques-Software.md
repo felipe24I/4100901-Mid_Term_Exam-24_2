@@ -1,6 +1,6 @@
 # Diagrama de Bloques Software
 
-![Software](https://github.com/user-attachments/assets/4fecda93-ff2f-419d-a03b-47e076a590cd)
+![Software1 1 drawio](https://github.com/user-attachments/assets/f7a9d5bd-6cfe-432a-a383-a4a7b2bf7ed0)
 
 
 
