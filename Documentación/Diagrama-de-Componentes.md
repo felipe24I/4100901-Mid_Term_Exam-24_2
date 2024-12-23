@@ -3,7 +3,7 @@
 
 
 ## Descripción
-Muestra la estructura interna del STM32F4 y sus componentes:
+Muestra la estructura interna del STM32L476 y sus componentes:
 
 ### Hardware Base
 - **Core ARM Cortex-M4**: Procesador principal del sistema
