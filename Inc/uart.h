@@ -49,9 +49,9 @@ typedef struct {
 
 
 typedef enum {
-    CMD_NONE,
-    CMD_OPEN,
-    CMD_CLOSE
+    CMD_NONE = 0, //camndo par no hacer nada
+    CMD_OPEN = 'O', //comando O para apertura puerta por 5 segundos
+    CMD_CLOSE = 'C' //comando C cierre puerta permanente
 } command_t;
 
 void usart2_init(void);

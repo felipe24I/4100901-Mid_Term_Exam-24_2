@@ -11,49 +11,29 @@ void usart2_init(void)
 
     *RCC_APB1ENR1 |= RCC_APB1ENR1_USART2EN;
 
-   // TODO: Configurar UART2
+    // 1. Desactivar USART
+    USART2->CR1 &= ~USART_CR1_UE;
 
+    // 2. Configurar el número de bits de datos
+    USART2->CR1 &= ~USART_CR1_M;
 
+    // 3. Configurar el número de bits de parada
+    USART2->CR2 &= ~USART_CR2_STOP;
+
+    // 4. configurar la velocidad de transmisión
+    USART2->BRR = BAUD_9600_4MHZ;
+
+    // 5. Habilitar Transmisión y receptor
+    USART2->CR1 |= (USART_CR1_TE | USART_CR1_RE);
+
+    //6. Habilitar la usart USART
+    USART2->CR1 |= USART_CR1_UE;
 
     // Activar interrupción de RXNE
     USART2->CR1 |= USART_CR1_RXNEIE; 
     NVIC->ISER[1] |= (1 << 6);
 }
 
-void UART_Init (USART_TypeDef * UARTx) {
-    UART_clock_enable(UARTx);
-    // Disable USART
-    UARTx->CR1 &= ~USART_CR1_UE;
-
-    // Set data length to 8 bits (clear M bit)
-    UARTx->CR1 &= ~USART_CR1_M;
-
-    // Select 1 stop bit (clear STOP bits in CR2)
-    UARTx->CR2 &= ~USART_CR2_STOP;
-
-    // Set parity control as no parity (clear PCE bit)
-    UARTx->CR1 &= ~USART_CR1_PCE;
-
-    // Oversampling by 16 (clear OVER8 bit)
-    UARTx->CR1 &= ~USART_CR1_OVER8;
-
-    // Set Baud rate to 9600 using APB frequency (4 MHz)
-    UARTx->BRR = BAUD_9600_4MHZ;
-
-    // Enable transmission and reception
-    UARTx->CR1 |= (USART_CR1_TE | USART_CR1_RE);
-
-    // Enable USART
-    UARTx->CR1 |= USART_CR1_UE;
-
-    // Verify that USART is ready for transmission
-    while ((UARTx->ISR & USART_ISR_TEACK) == 0);
-
-    // Verify that USART is ready for reception
-    while ((UARTx->ISR & USART_ISR_REACK) == 0);
-
-    UART_receive_it(UARTx);
-}
 void usart2_send_string(const char *str)
 {
     while (*str) {

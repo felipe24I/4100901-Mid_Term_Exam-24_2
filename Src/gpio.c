@@ -18,7 +18,7 @@
 #define GPIOC ((GPIO_t *)0x48000800) // Base address of GPIOC
 
 #define LED_PIN 5 // Pin 5 of GPIOA
-#define LED1_PIN 4 // pin 4 of GPIOA (ESTADO DE LA ÚERTA)
+#define LED1_PIN 4 // pin 4 of GPIOA (ESTADO DE LA PUERTA)
 #define BUTTON_PIN 13 // Pin 13 of GPIOC
 
 #define BUTTON_IS_PRESSED()    (!(GPIOC->IDR & (1 << BUTTON_PIN)))
@@ -68,8 +68,8 @@ void configure_gpio(void)
     SYSCFG->EXTICR[3] |= (0x2 << 4);  // Map EXTI13 to Port C
 
     //Configure EXTI13 for falling edge trigger
-    EXTI->FTSR1 |= (1 << BUTTON_PIN);  // Enable falling trigger
-    EXTI->RTSR1 &= ~(1 << BUTTON_PIN); // Disable rising trigger
+    EXTI->FTSR1 |= (1 << BUTTON_PIN);  // Habilitar flancos de bajada para las interrupciones externas
+    EXTI->RTSR1 &= ~(1 << BUTTON_PIN); // Desabilitar flancos de subida para las interrupciones externas
 
     // Unmask EXTI13
     EXTI->IMR1 |= (1 << BUTTON_PIN);
@@ -85,7 +85,7 @@ void configure_gpio(void)
     configure_gpio_for_usart();
 }
 
-// Emula el comprtamiento de la puerta
+// Emula el comportamiento de la puerta
 void gpio_set_door_led_state(uint8_t state) {
     if (state) {
         GPIOA->ODR |= (1 << 4); // encender LED estado puerta
@@ -101,7 +101,9 @@ void gpio_toggle_heartbeat_led(void) {
 volatile uint8_t button_pressed = 0; // Flag to indicate button press
 uint8_t button_driver_get_event(void)
 {
-    return button_pressed;
+    uint8_t event = button_pressed; //Variable local event que va a almacenar el valor actual de la bandera button_pressed
+    button_pressed = 0;  //Se resetea la bandera button_pressed
+    return event; //Retorna el valor de event
 }
 
 uint32_t b1_tick = 0;
