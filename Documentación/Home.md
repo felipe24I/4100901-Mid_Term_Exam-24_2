@@ -1,5 +1,5 @@
 # Sistema de Control de Acceso STM32
-Sistema de control de acceso implementado en STM32F4, con control por botón y UART.
+Sistema de control de acceso implementado en STM32L476, con control por botón y UART.
 
 ## Índice
 1. [Diagrama de Contexto](./Diagrama-de-Contexto)
