@@ -1,5 +1,6 @@
 # Diagrama de Contexto
-![contexto_1 1](https://github.com/user-attachments/assets/2833364f-2f73-41b1-b6d9-2e482f458ca5)
+![contexto2 0 drawio](https://github.com/user-attachments/assets/a12f4e4f-9059-4052-a18b-9ab41b7f62d4)
+
 
 
 ## Descripción
