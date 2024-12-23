@@ -28,4 +28,3 @@ Muestra el flujo de ejecución del software en el STM32F4 usando registros direc
 - **ISR UART**: Manejo de recepción de datos
    - Lectura de dato recibido
 
-[Ver Diagrama](./assets/diagrama-bloques-software.png)
