@@ -1,6 +1,7 @@
 # Diagrama de Bloques Software
 
-![image](https://github.com/user-attachments/assets/974e8b0a-0578-4979-a2fd-f0da834fe8ea)
+![Software](https://github.com/user-attachments/assets/4fecda93-ff2f-419d-a03b-47e076a590cd)
+
 
 
 ## Descripción
