@@ -1,5 +1,9 @@
 # Diagrama de Flujo
 
+![flujo](https://github.com/user-attachments/assets/f3f9371e-512a-44d7-9f52-5c07f02ac23d)
+
+
+
 ## Descripción
 Muestra el flujo detallado del manejo del botón, sus interrupciones y eventos:
 
